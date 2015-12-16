@@ -1,0 +1,83 @@
+
+<h1>Usuario</h1>
+<h1>Nuevo Usuario</h1>
+<div class="row">
+
+
+<div class="col-md-8">
+  <!--
+    <form method="post" action="http://localhost:1337/Entrenador">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Actualiza tu nombre">
+      </div>
+        <div class="form-group">
+          <label for="apellido">Apellido</label>
+
+        <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Actualiza tu apellido">
+
+        </div>
+        <button type="submit" name="button" class="btn btn-primary">Guardar</button>
+
+    </form>
+  -->
+
+  <form ng-submit="registrarEntrenador(entrenadorNuevo)">
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" ng-model="entrenadorNuevo.nombre" class="form-control" name="nombre" id="nombre" placeholder="Actualiza tu nombre">
+    </div>
+      <div class="form-group">
+        <label for="apellido">Apellido</label>
+        <!--
+        <input type="text" ng-model="entrenadores[$index].apellido" class="form-control" name="apellido" id="apellido" placeholder="Actualiza tu apellido">
+      -->
+      <input type="text" ng-model="entrenadorNuevo.apellido" class="form-control" name="apellido" id="apellido" placeholder="Actualiza tu apellido">
+
+      </div>
+      <button type="submit" name="button" class="btn btn-primary">Guardar</button>
+
+  </form>
+</div>
+</div>
+<div class="row">
+
+<h1>Usuario Registrados</h1>
+<div ng-repeat="entrenador in entrenadores">
+
+
+  <div class="col-md-4 animated rubberBand">
+    <p>
+      Nombre: {{entrenador.nombre}}
+    </p>
+    <p>
+      Apellido: {{entrenador.apellido}}
+    </p>
+    <button type="button" name="button" class="btn btn-primary">Sin Funcionalidad</button>
+    <br>
+    <br>
+
+    <form ng-submit="editarEntrenador(entrenador)">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" ng-model="entrenadores[$index].nombre" class="form-control" name="nombre" id="nombre" placeholder="Actualiza tu nombre">
+      </div>
+        <div class="form-group">
+          <label for="apellido">Apellido</label>
+          <!--
+          <input type="text" ng-model="entrenadores[$index].apellido" class="form-control" name="apellido" id="apellido" placeholder="Actualiza tu apellido">
+        -->
+        <input type="text" ng-model="entrenador.apellido" class="form-control" name="apellido" id="apellido" placeholder="Actualiza tu apellido">
+
+        </div>
+        <button type="submit" name="button" class="btn btn-primary">Guardar</button>
+        <button type="button" ng-click="eliminarEntrenador(entrenador)" class="btn btn-primary" name="button">Eliminar</button>
+    </form>
+    <br>
+    <br>
+    <br>
+  </div>
+
+</div>
+
+</div>
